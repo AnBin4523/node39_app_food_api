@@ -4,11 +4,13 @@ const { Model, Sequelize } = _sequelize;
 export default class appfood extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
-    res_id: {
+    appfood_id: {
+      autoIncrement: true,
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false,
+      primaryKey: true
     },
-    res_name: {
+    appfood_name: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -23,7 +25,17 @@ export default class appfood extends Model {
   }, {
     sequelize,
     tableName: 'appfood',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "appfood_id" },
+        ]
+      },
+    ]
   });
   }
 }

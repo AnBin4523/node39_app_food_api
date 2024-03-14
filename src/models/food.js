@@ -11,11 +11,11 @@ export default class food extends Model {
       primaryKey: true
     },
     food_name: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     image: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     price: {
@@ -23,7 +23,7 @@ export default class food extends Model {
       allowNull: true
     },
     description: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     type_id: {
@@ -31,7 +31,7 @@ export default class food extends Model {
       allowNull: true,
       references: {
         model: 'food_type',
-        key: 'type_id'
+        key: 'id'
       }
     }
   }, {

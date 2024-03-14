@@ -4,14 +4,14 @@ const { Model, Sequelize } = _sequelize;
 export default class food_type extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
-    type_id: {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
     type_name: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
@@ -24,7 +24,7 @@ export default class food_type extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "type_id" },
+          { name: "id" },
         ]
       },
     ]

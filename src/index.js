@@ -15,5 +15,5 @@ const connect = mysql.createConnection({
   user: "root",
   password: "1234",
   port: "3306",
-  database: "node39_app_food",
+  database: "db_app_food",
 });

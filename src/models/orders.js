@@ -4,11 +4,17 @@ const { Model, Sequelize } = _sequelize;
 export default class orders extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
+    oder_id: {
+      autoIncrement: true,
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true
+    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'users',
+        model: 'user',
         key: 'user_id'
       }
     },
@@ -24,12 +30,12 @@ export default class orders extends Model {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    code: {
-      type: DataTypes.STRING(100),
+    order_code: {
+      type: DataTypes.STRING(150),
       allowNull: true
     },
     arr_sub_id: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
@@ -37,6 +43,14 @@ export default class orders extends Model {
     tableName: 'orders',
     timestamps: false,
     indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "oder_id" },
+        ]
+      },
       {
         name: "user_id",
         using: "BTREE",

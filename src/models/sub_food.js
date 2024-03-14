@@ -11,7 +11,7 @@ export default class sub_food extends Model {
       primaryKey: true
     },
     sub_name: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     sub_price: {
